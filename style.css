@@ -1,0 +1,105 @@
+*{
+    padding: 0;
+    margin: 0;
+    /* box-sizing: border-box; */
+}
+:root{
+    --orange: #d2cebd;
+    /* --winning-blocks: #2d414b; */
+}
+body{
+    color: var(--orange);
+    font-family: 'Finger Paint', cursive;
+}
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: radial-gradient(circle at 50% 16%, #219eb0 32%, #3f679d 88%);
+}
+.container h1{
+    font-size: 54px;
+    text-transform: uppercase;
+}
+.container button{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--orange);
+    color: #0a567d;
+    border: none;
+    font-size: 18px;
+    transition: 200ms transform;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.6s;
+    margin-top: 10px;
+}
+.container button:hover{
+    background-color: #0a567d;
+    color: var(--orange);
+    transform: translateY(-2px);
+}
+.container #gameboard{
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+.container #gameboard .box-father{
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 3px solid;
+    border-bottom: 3px solid;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.container #gameboard .box {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange);
+    font-size: 85px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.container #gameboard .box-father:nth-child(3n) {
+    border-right: none;
+}
+.container #gameboard .box-father:nth-child(6) ~ .box-father {
+    border-bottom: none;
+} 
+.no-drop{
+    cursor: no-drop !important;
+}
+.animation{
+    animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+    0% { opacity: 0;
+         transform: scale(0.5);
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
+}
+@media screen and (max-width:350px){
+    .container h1{
+        font-size: 40px;
+    }
+    .container #gameboard {
+        width: 260px;
+        justify-content: center;
+    }
+    .container #gameboard .box-father {
+        height: 85px;
+        width: 85px;
+    }
+}
