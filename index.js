@@ -1,6 +1,7 @@
 let playerWinner = document.getElementById('playerWinner');
 let restart = document.getElementById('restart');
 let boxes = document.querySelectorAll('.box');
+let boxFathers = document.querySelectorAll('.box-father');
 
 // let winnerIndicator = getComputedStyle(document.body).getPropertyValue('--winning-blocks')
 let turn = "X";
@@ -57,7 +58,7 @@ function cheakDraw(){
         if(isDraw){
             isGameOver = true;
             playerWinner.innerHTML = "Game Over";
-            boxes.forEach(element =>{
+            boxFathers.forEach(element =>{
                 element.style.background = "#9a000096";
             })
         }
@@ -73,5 +74,8 @@ restart.addEventListener('click', ()=>{
         element.style.background = "transparent";
         element.classList.remove('no-drop');
         element.classList.remove('animation');
+    })
+    boxFathers.forEach((element)=>{
+        element.style.background = "transparent";
     })
 })
